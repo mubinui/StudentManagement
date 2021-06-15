@@ -7,14 +7,14 @@ import java.io.InputStreamReader;
 
 public class Start {
     public static void main(String[] args) throws IOException {
-        System.out.println("Welcome to Student Management App");
+        System.out.println("🎈🎈 Welcome to Student Management App 🎈🎈");
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         while(true){
-            System.out.println("PRESS 1 to ADD student");
-            System.out.println("PRESS 2 to DELETE student");
-            System.out.println("PRESS 3 to DISPLAY student");
-            System.out.println("PRESS 4 to EXIT the app");
+            System.out.println("=> PRESS 1 to ADD student");
+            System.out.println("=> PRESS 2 to DELETE student");
+            System.out.println("=> PRESS 3 to DISPLAY student");
+            System.out.println("=> PRESS 4 to EXIT the app");
             int c = Integer.parseInt(br.readLine());
             if (c == 1){
                 //add student..
@@ -39,10 +39,21 @@ public class Start {
             }
             else if (c == 2){
                 //delete student..
+                System.out.println("=> Enter student id to delete");
+                int userId= Integer.parseInt(br.readLine());
+                boolean flag = StudentDao.deleteStudent(userId);
+                if(flag){
+                    System.out.println("=> Deleted Successfully");
+                }
+                else{
+                    System.out.println("=> Id not found ");
+                }
 
             }
             else if (c == 3){
                 //display student..
+                StudentDao.allStuedents();
+
             }
             else if (c == 4){
                 //Exit
